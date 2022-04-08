@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 
-echo "scale=10;4*a(1)" > /pi_expression
+DIGITS=10
+
+if [ -n "$1" ]; then
+	DIGITS=$1
+fi
+
+echo "scale=$DIGITS;4*a(1)" > /pi_expression
 time bc -l /pi_expression
